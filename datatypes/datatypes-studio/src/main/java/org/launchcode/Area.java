@@ -15,7 +15,14 @@ public class Area {
 
 //        area = Math.PI * radius * radius;
         area = Circle.getArea(radius);
-        System.out.println("The area of a circle of radius " + radius + " is: " + area);
+
+        if (radius > 0) {
+            System.out.println("The area of a circle of radius " + radius + " is: " + area);
+        } else {
+            System.err.println("Radius must be a positive number greater than zero!");
+        }
+
+
 
     }
 }
