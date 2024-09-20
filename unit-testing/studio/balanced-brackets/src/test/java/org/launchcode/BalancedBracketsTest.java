@@ -13,17 +13,43 @@ class BalancedBracketsTest {
 
     @Test
     public void onlyBracketsReturnsTrue() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
-    }
-
-    @Test
-    public void manyEvenBracketsReturnsTrue(){
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[][]"));
+        String message = "a single set of balanced brackets returns true";
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"), message);
     }
 
     @Test
     public void bracketsWithStringReturnsTrue(){
         assertTrue(BalancedBrackets.hasBalancedBrackets("[LaunchCode]"));
+    }
+
+    @Test
+    public void singleBracketBeforeStringReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]LaunchCode"));
+    }
+
+    @Test
+    public void bracketsAmongOtherCharactersReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("Launch[Code]"));
+    }
+
+    @Test
+    public void manyEvenBracketsReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[][][]"));
+    }
+
+    @Test
+    public void tripleNestedBalancedBracketsReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[[[]]]"));
+    }
+
+    @Test
+    public void singleOpeningBracketReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("["));
+    }
+
+    @Test
+    public void singleClosingBracketReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
     }
 
     @Test
@@ -37,10 +63,7 @@ class BalancedBracketsTest {
     }
 
     @Test
-    public void indexOfChecksLastInstanceOfChar(){
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[[]]"));
+    public void sillyBracketsReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[Laun]]][ch[C]ode]]][[]"));
     }
-
-
-
 }

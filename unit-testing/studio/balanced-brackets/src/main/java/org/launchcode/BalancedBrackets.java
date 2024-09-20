@@ -24,23 +24,21 @@ public class BalancedBrackets {
      */
     public static boolean hasBalancedBrackets(String str) {
         int brackets = 0;
-        boolean isTrue = false;
 
-        ArrayList<Character> bracketArray = new ArrayList<>();
+//        ArrayList<Character> bracketArray = new ArrayList<>();
         for (char ch : str.toCharArray()) {
             if (ch == '[') {
                 brackets++;
-                bracketArray.add(ch);
+//                bracketArray.add(ch);
             } else if (ch == ']') {
                 brackets--;
-                bracketArray.add(ch);
+//                bracketArray.add(ch);
+            }
+            if(brackets < 0){
+                return false;
             }
         }
-        Object[] bracketObjectArray = bracketArray.toArray();
-        if(brackets == 0 && bracketObjectArray.indexOf("[") == 0){
-            isTrue = true;
-        }
-        return isTrue;
+        return brackets == 0;
     }
 
 //    public static boolean hasOrderedBrackets(String str){
