@@ -10,4 +10,37 @@ class BalancedBracketsTest {
     public void emptyTest() {
         assertEquals(true, true);
     }
+
+    @Test
+    public void onlyBracketsReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
+    }
+
+    @Test
+    public void manyEvenBracketsReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[][]"));
+    }
+
+    @Test
+    public void bracketsWithStringReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[LaunchCode]"));
+    }
+
+    @Test
+    public void reversedBracketsReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
+    }
+
+    @Test
+    public void messedUpBracketsWithStringReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("Launch]Code["));
+    }
+
+    @Test
+    public void indexOfChecksLastInstanceOfChar(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[[]]"));
+    }
+
+
+
 }
